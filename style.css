@@ -1,0 +1,251 @@
+/* ================= GLOBAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #0b1023, #050816 60%);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 8%;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(77, 163, 255, 0.15);
+}
+
+.logo {
+    color: #4da3ff;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #4da3ff;
+}
+
+/* ================= PAGE ================= */
+.page {
+    padding: 140px 8% 80px;
+}
+
+h2 {
+    color: #4da3ff;
+    margin-bottom: 40px;
+}
+
+/* ================= HERO ================= */
+.hero-blue {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-blue::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: #1d8fff33;
+    filter: blur(120px);
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 30px);
+    }
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 55px;
+}
+
+.hero-content p {
+    color: #b9c6dd;
+    margin: 15px 0;
+}
+
+/* ================= BUTTON ================= */
+.btn-blue {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #1d8fff, #4da3ff);
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 0 20px #1d8fff55;
+    transition: 0.3s;
+}
+
+.btn-blue:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px #1d8fff99;
+}
+
+/* ================= GRID ================= */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* ================= CARDS ================= */
+.glass-card,
+.service-card,
+.project-card {
+    background: #0d1428;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.4s;
+}
+
+.card-grid div:hover {
+    transform: translateY(-10px);
+    border-color: #1d8fff;
+    box-shadow: 0 0 25px #1d8fff33;
+}
+
+/* ================= CONTACT ================= */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+}
+
+.contact-info,
+.contact-form {
+    background: #0d1428;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-size: 14px;
+    color: #9bb3d1;
+}
+
+input,
+textarea {
+    padding: 12px;
+    border-radius: 10px;
+    background: #050816;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    outline: none;
+}
+
+/* ================= ANIMATION ================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+}
+
+.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* ================= LOGO ================= */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* IMAGE LOGO */
+.logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* OPTIONAL: fallback if image fails */
+.logo-img::after {
+    content: "NOVARA";
+    color: #4da3ff;
+    font-weight: 800;
+}
+
+.logo-img {
+    transition: 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 10px #1d8fff66);
+}
